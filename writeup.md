@@ -32,7 +32,7 @@ The goals / steps of this project are the following:
 You're reading it! and here is a link to my [project code](https://github.com/wrgrant/carnd-project2-sign-classifier)
 
 
-###Data Set Summary & Exploration
+####Data Set Summary & Exploration
 
 The code for this step is contained in the third cell of the Jupyter notebook.  
 
@@ -44,7 +44,7 @@ signs data set:
 * The shape of a traffic sign image is (32, 32, 3) pixels
 * The number of unique classes/labels in the data set is 43
 
-####2. Include an exploratory visualization of the dataset and identify where the code is in your code file.
+#### Exploratory visualization
 
 The code for this step is contained in the fourth and fifth code cells of the Jupyter notebook.  
 
@@ -110,7 +110,7 @@ To train the model, I used an the default AdamOptimizer routine from the LeNet l
 
 I chose 20 epochs because that was about the point where I could tell the validation accuracy would plateau.
 
-####4. Describe the approach taken for finding a solution. Include in the discussion the results on the training, validation and test sets and where in the code these were calculated. Your approach may have been an iterative process, in which case, outline the steps you took to get to the final solution and why you chose those steps. Perhaps your solution involved an already well known implementation or architecture. In this case, discuss why you think the architecture is suitable for the current problem.
+
 
 ####4. Solution approach
 The code for calculating the accuracy of the model is located in the twelfth cell of the Jupyter notebook.
@@ -127,44 +127,31 @@ I settled upon the LeNet architecture because according to the intro videos to t
 
 ###Test a Model on New Images
 
-####1. Choose five German traffic signs found on the web and provide them in the report. For each image, discuss what quality or qualities might be difficult to classify.
+####1. Acquiring new images
 
-Here are five German traffic signs that I found on the web:
+Here are five German traffic signs that I found on the web from the site: http://www.gettingaroundgermany.info/zeichen.shtml
+I figured these would be nice images because they are very clean. I didn't intentionally choose images that would be difficult to classify. These images have much less noise and other 'real-world' artifacts in them than the test and training set (I didn't look at every image in the data sets so maybe this is a false assumption) These images also are of high contrast ratio, and that probably helped make them easier to classify.
 
 ![][image1] ![][image2] ![][image3] ![][image4] ![][image5]
 
-The first image might be difficult to classify because ...
 
-####2. Discuss the model's predictions on these new traffic signs and compare the results to predicting on the test set. Identify where in your code predictions were made. At a minimum, discuss what the predictions were, the accuracy on these new predictions, and compare the accuracy to the accuracy on the test set (OPTIONAL: Discuss the results in more detail as described in the "Stand Out Suggestions" part of the rubric).
+####2. Performance on new images
 
-The code for making predictions on my final model is located in the tenth cell of the Ipython notebook.
+The code for making predictions on my final model is located in the sixteenth cell of the Jupyter notebook.
 
 Here are the results of the prediction:
 
 | Image			        |     Prediction	        					|
-|:---------------------:|:---------------------------------------------:|
-| Stop Sign      		| Stop sign   									|
-| U-turn     			| U-turn 										|
-| Yield					| Yield											|
-| 100 km/h	      		| Bumpy Road					 				|
-| Slippery Road			| Slippery Road      							|
+|:---------------------:|:-----------------------:|
+| No passing      		| No passing   									|
+| No over 3.5 tons   	| No over 3.5 tons										|
+| Priority road				| Priority road									|
+| Road work      		| Road work				 				|
+| Wild animal crossing| Wild animal crossing     							|
 
 
-The model was able to correctly guess 4 of the 5 traffic signs, which gives an accuracy of 80%. This compares favorably to the accuracy on the test set of ...
+The model was able to correctly guess 5 of the 5 traffic signs, which gives an accuracy of 100%!! This compares favorably to the accuracy on the test set of 90%.
 
-####3. Describe how certain the model is when predicting on each of the five new images by looking at the softmax probabilities for each prediction and identify where in your code softmax probabilities were outputted. Provide the top 5 softmax probabilities for each image along with the sign type of each probability. (OPTIONAL: as described in the "Stand Out Suggestions" part of the rubric, visualizations can also be provided such as bar charts)
+####3. Model certainty
 
-The code for making predictions on my final model is located in the 11th cell of the Ipython notebook.
-
-For the first image, the model is relatively sure that this is a stop sign (probability of 0.6), and the image does contain a stop sign. The top five soft max probabilities were
-
-| Probability         	|     Prediction	        					|
-|:---------------------:|:---------------------------------------------:|
-| .60         			| Stop sign   									|
-| .20     				| U-turn 										|
-| .05					| Yield											|
-| .04	      			| Bumpy Road					 				|
-| .01				    | Slippery Road      							|
-
-
-For the second image ...
+For softmax probabilities, I only output the top 3 for each image, because the certainty for each image was roughly 100%. I will omit graphs and tables showing this because it would be a waste of space. The actual and guessed index for each image is shown in cell 17 of the Jupyter notebook.
